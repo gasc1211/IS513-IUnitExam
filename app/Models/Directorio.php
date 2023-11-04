@@ -12,4 +12,5 @@ class Directorio extends Model
 
     public $incrementing = false;
     public $primaryKey = 'codigoEntrada';
+    public $timestamps = false;
 }

@@ -18,13 +18,13 @@ class DirectorioController extends Controller
         return view("crearEntrada");
     }
 
-    public function insertar(Request $request){
+    public function insert(Request $request){
         $directorio = new Directorio();
-        $directorio->codigoEntrada = $request->codigoEntrada;
-        $directorio->nombre = $request->nombre;
-        $directorio->apellido = $request->apellido;
-        $directorio->correo = $request->correo;
-        $directorio->telefono = $request->telefono;
+        $directorio->codigoEntrada = $request->input('codigoEntrada');
+        $directorio->nombre = $request->input('nombre');
+        $directorio->apellido = $request->input('apellido');
+        $directorio->correo = $request->input('correo');
+        $directorio->telefono = $request->input('telefono');
         $directorio->save();
 
         return redirect(route('directorio.inicio'));

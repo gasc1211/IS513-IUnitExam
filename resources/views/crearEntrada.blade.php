@@ -43,11 +43,11 @@
                             <h3 class="card-header">Crear Nueva Entrada Directorio</h3>
                             <div class="card-body">
                                 <p class="card-text">
-                                    @csrf
-                                    @method('POST')
-                                    <form method="POST", action="{{ route("directorio.insertar")}}">
+                                    <form method="POST" action="{{ route("directorio.insertar")}}">
+                                        @csrf
+                                        @method('POST')
                                         <label for="">C&oacute;digo</label>
-                                        <input type="text" name="codigo" class="form-control">
+                                        <input type="text" name="codigoEntrada" class="form-control">
                                         <label for="">Nombre</label>
                                         <input type="text" name="nombre" class="form-control">
                                         <label for="">Apellido</label>
@@ -58,7 +58,7 @@
                                         <input type="text" name="correo" class="form-control">
 
 
-                                        <button class="btn btn-primary">Guardar</button>
+                                        <button type="submit" class="btn btn-primary">Guardar</button>
                                         <a href="{{ route('directorio.inicio') }}" class="btn btn-info">Regresar</a>
 
                                     </form>
