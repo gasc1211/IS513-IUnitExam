@@ -29,13 +29,19 @@ class DirectorioController extends Controller
 
         return redirect(route('directorio.inicio'));
     }
-
-    public function search(Request $request, $id){
-        $directorio = Contacto::find( $id );
-        return view('buscar', compact('contacto'));
+    public function search(){
+        return view('buscar');
     }
-    public function view($id){
-        $contactos = Contacto::where('codigoEntrada', $id)
+    public function find(Request $request){
+        $directorios = Directorio::where('correo', $request->input('correo'))
+                                    ->get();
+        $directorio = $directorios[0];
+        $contactos = Contacto::where('codigoEntrada', $directorio->codigoEntrada)
+                                ->get();
+        return view('vercontactos', compact('directorio', 'contactos'));
+    }
+    public function view($directorio){
+        $contactos = Contacto::where('codigoEntrada', $directorio->codigoEntrada)
                                 ->get();
         return view('vercontactos', compact('contactos'));
     }

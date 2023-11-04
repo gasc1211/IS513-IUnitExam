@@ -32,8 +32,8 @@
         </style>
     </head>
     <body class="antialiased">
-        
-        
+
+
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
 
@@ -43,19 +43,21 @@
                             <h3 class="card-header">Agregar Contacto</h3>
                             <div class="card-body">
                                 <p class="card-text">
-                                    <form>
+                                    <form method="POST" action="{{ route('contacto.insertar', $codigoEntrada) }}">
+                                        @csrf
+                                        @method('POST')
                                         <label for="">C&oacute;digo de entrada</label>
-                                        <input type="text" name="codigo" class="form-control" readonly>
+                                        <input type="text" name="codigoEntrada" class="form-control" readonly value="{{$codigoEntrada}}">
                                         <label for="">Nombre</label>
                                         <input type="text" name="nombre" class="form-control">
                                         <label for="">Apellido</label>
                                         <input type="text" name="apellido" class="form-control">
                                         <label for="">Tel&eacute;fono</label>
                                         <input type="text" name="telefono" class="form-control">
-                                        
-                                        <button class="btn btn-primary">Guardar</button>
-                                        <a href="#" class="btn btn-info">Regresar</a>
-                                        
+
+                                        <button type="submit" class="btn btn-primary">Guardar</button>
+                                        <a href="{{ route('directorio.inicio') }}" class="btn btn-info">Regresar</a>
+
                                     </form>
                                 </p>
                             </div>
@@ -66,11 +68,11 @@
                 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
                     <div class="text-center text-sm text-gray-500 sm:text-left">
                         <div class="flex items-center">
-                            
+
                         </div>
                     </div>
 
-                    
+
                 </div>
             </div>
         </div>

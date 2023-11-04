@@ -39,7 +39,7 @@
                             <td>{{$directorio->apellido}}</td>
                             <td>{{$directorio->telefono}}</td>
                             <td>
-                                <a href="{{ route('directorio.ver') }}" class="btn btn-info">Ver</a>
+                                <a href="{{ route('directorio.ver', $directorio) }}" class="btn btn-info">Ver</a>
                             </td>
                             <td>
                                 <a href="{{ route('directorio.eliminacion', $directorio->codigoEntrada) }}" class="btn btn-danger">Eliminar</a>

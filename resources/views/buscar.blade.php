@@ -32,8 +32,8 @@
         </style>
     </head>
     <body class="antialiased">
-        
-        
+
+
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
 
@@ -43,12 +43,16 @@
                             <h3 class="card-header">Buscar Entrada</h3>
                             <div class="card-body">
                                 <p class="card-text">
-                                    <label for="">Correo</label>
-                                    <input type="text" class="form-control" name ="correo">
-                                    <p>
-                                        <a href="#" class="btn btn-success">Buscar</a>
-                                        <a href="#" class="btn btn-info">Regresar</a>
-                                    </p>                                    
+                                    <form method="GET" action="{{ route("directorio.encontrar")}}">
+                                        @csrf
+                                        @method('GET')
+                                        <label for="">Correo</label>
+                                        <input type="text" class="form-control" name ="correo">
+                                        <button type="submit" class="btn btn-success">Buscar</button>
+                                        <p>
+                                            <a href="{{ route("directorio.inicio") }}" class="btn btn-info">Regresar</a>
+                                        </p>
+                                    </form>
                                 </p>
                             </div>
                         </div>
@@ -58,11 +62,11 @@
                 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
                     <div class="text-center text-sm text-gray-500 sm:text-left">
                         <div class="flex items-center">
-                            
+
                         </div>
                     </div>
 
-                    
+
                 </div>
             </div>
         </div>

@@ -44,17 +44,16 @@
                             <div class="card-body">
                                 <p class="card-text">
                                     <label for="">C&oacute;digo</label>
-                                    <input type="text" class="form-control" readonly>
+                                    <input type="text" class="form-control" value="{{$directorio->codigoEntrada}}"readonly>
                                     <label for="">Nombre</label>
-                                    <input type="text" class="form-control" readonly>
+                                    <input type="text" class="form-control" value="{{$directorio->nombre}}"readonly>
                                     <label for="">Apellido</label>
-                                    <input type="text" class="form-control" readonly>
+                                    <input type="text" class="form-control" value="{{$directorio->apellido}}"readonly>
 
                                     <p>
-                                        <button class="btn btn-primary">Agregar nuevo contacto</button>
-                                        <a href="#" class="btn btn-info">Regresar</a>
+                                        <a href="{{ route('contacto.crear', $directorio->codigoEntrada) }}" class="btn btn-primary">Agregar nuevo contacto</a>
+                                        <a href="{{ route('directorio.inicio') }}" class="btn btn-info">Regresar</a>
                                     </p>
-
                                     <table class="table">
                                         <thead>
                                             <th scope="col" name="id">Id</th>
@@ -70,7 +69,7 @@
                                                 <td>{{$contacto->nombre}}</td>
                                                 <td>{{$contacto->apellido}}</td>
                                                 <td>{{$contacto->telefono}}</td>
-                                                <a href="#" class="btn btn-danger">Eliminar</a>
+                                                <td><a href="{{ route('contacto.eliminar', $contacto->id) }}" class="btn btn-danger">Eliminar</a></td>
                                             </tr>
                                             @endforeach
                                         </tbody>
