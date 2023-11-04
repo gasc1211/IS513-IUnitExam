@@ -40,10 +40,13 @@ class DirectorioController extends Controller
                                 ->get();
         return view('vercontactos', compact('directorio', 'contactos'));
     }
-    public function view($directorio){
-        $contactos = Contacto::where('codigoEntrada', $directorio->codigoEntrada)
+    public function view($codigoEntrada){
+        $directorios = Directorio::where('codigoEntrada', $codigoEntrada)
+                                    ->get();
+        $directorio = $directorios[0];
+        $contactos = Contacto::where('codigoEntrada', $codigoEntrada)
                                 ->get();
-        return view('vercontactos', compact('contactos'));
+        return view('vercontactos', compact('directorio','contactos'));
     }
 
     public function deletion(Request $request, $id){
